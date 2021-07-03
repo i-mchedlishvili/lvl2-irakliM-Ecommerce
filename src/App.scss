@@ -1,0 +1,109 @@
+.MuiContainer-root {
+  padding: 0 !important;
+}
+.header-items {
+  color: white;
+  .MuiListItem-root {
+    width: auto !important;
+    text-transform: none !important;
+    background-color: transparent !important;
+    color: white;
+  }
+  span {
+    text-transform: none !important;
+    color: white;
+    font-weight: bold;
+  }
+  .sign-up-but {
+    border: 2px solid white;
+    border-radius: 15px;
+    color: #42aaff;
+    text-transform: none !important;
+    margin-left: 10px;
+    font-size: 10px !important;
+  }
+  .header-logo {
+    position: fixed;
+    left: 2%;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  svg {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .MuiList-root {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    z-index: 111;
+  }
+  .MuiListItem-gutters {
+    padding: 0;
+  }
+  .shopCont {
+    p {
+      z-index: 1111 !important;
+      font-size: 40px;
+      text-align: center;
+      margin-top: 35vh;
+      color: white;
+      font-weight: 500;
+      &:hover {
+        cursor: default;
+      }
+    }
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    background-color: black;
+    opacity: 0.7;
+  }
+}
+
+.subcategories {
+    padding: 5vh 9vw;
+    color: black;
+    span {
+        font-weight: 400;
+    }
+    .MuiListItem-gutters {
+        padding: 2vh 0;
+        font-size: 13px;
+    }
+    li {
+        &:hover {
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    }
+}
+
+.filter {
+    padding: 5vh 0 5vh 9vw;
+    .MuiFormLabel-root {
+        font-size: 20px !important;
+        font-weight: bold;
+        color: black;
+    }
+    .MuiInputBase-input {
+        border: 1px solid black;
+    }
+    .button {
+        padding-top: 40px !important;
+    }
+    .MuiFormLabel-root {
+        margin-bottom: 20px;
+    }
+}
+
+.conditions {
+    font-size: 14px;
+    padding: 5vh 0 5vh 9vw;
+    span {
+        padding: 0 !important;
+    }
+}
