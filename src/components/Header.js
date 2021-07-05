@@ -25,30 +25,28 @@ function Header() {
   const classes = useStyles();
   return (
     <div className="App">
-      <Container maxWidth>
-        <Box className="header-items">
-          <List className={classes.flexHeader}>
-            <p className="header-logo">MDB</p>
-            <ShoppingCartIcon />
-            <ListItem>
-              <Button>Shop</Button>
-            </ListItem>
-            <ListItem>
-              <Button>Contact</Button>
-            </ListItem>
-            <ListItem>
-              <Button>Sign in</Button>
-            </ListItem>
-            <ListItem>
-              <Button className="sign-up-but">SIGN UP</Button>
-            </ListItem>
-          </List>
-          <Box className="shopCont">
-            <p>Shop</p>
-          </Box>
-          <CardMedia component="img" height="400" width="100" image={Image} />
+      <Box className="header-items">
+        <List className={classes.flexHeader}>
+          <p className="header-logo">MDB</p>
+          <ShoppingCartIcon />
+          <ListItem>
+            <Button>Shop</Button>
+          </ListItem>
+          <ListItem>
+            <Button>Contact</Button>
+          </ListItem>
+          <ListItem>
+            <Button>Sign in</Button>
+          </ListItem>
+          <ListItem>
+            <Button className="sign-up-but">SIGN UP</Button>
+          </ListItem>
+        </List>
+        <Box className="shopCont">
+          <p>Shop</p>
         </Box>
-      </Container>
+        <CardMedia component="img" height="400" width="100" image={Image} />
+      </Box>
     </div>
   );
 }

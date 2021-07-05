@@ -1,6 +1,3 @@
-.MuiContainer-root {
-  padding: 0 !important;
-}
 .header-items {
   color: white;
   .MuiListItem-root {
@@ -49,7 +46,7 @@
       z-index: 1111 !important;
       font-size: 40px;
       text-align: center;
-      margin-top: 35vh;
+      margin-top: 25vh !important;
       color: white;
       font-weight: 500;
       &:hover {
@@ -65,45 +62,56 @@
 }
 
 .subcategories {
-    padding: 5vh 9vw;
-    color: black;
-    span {
-        font-weight: 400;
+  color: black;
+  span {
+    font-weight: 400;
+  }
+  .MuiListItem-gutters {
+    padding: 1vh 0;
+    font-size: 13px;
+  }
+  li {
+    &:hover {
+      cursor: pointer;
+      margin: 0 5px;
     }
-    .MuiListItem-gutters {
-        padding: 2vh 0;
-        font-size: 13px;
-    }
-    li {
-        &:hover {
-            cursor: pointer;
-            margin: 0 5px;
-        }
-    }
+  }
 }
 
 .filter {
-    padding: 5vh 0 5vh 9vw;
-    .MuiFormLabel-root {
-        font-size: 20px !important;
-        font-weight: bold;
-        color: black;
-    }
-    .MuiInputBase-input {
-        border: 1px solid black;
-    }
-    .button {
-        padding-top: 40px !important;
-    }
-    .MuiFormLabel-root {
-        margin-bottom: 20px;
-    }
+  .MuiFormLabel-root {
+    font-size: 20px !important;
+    font-weight: bold;
+    color: black;
+  }
+  .MuiInputBase-input {
+    border: 1px solid black;
+  }
+  .button {
+    padding-top: 40px !important;
+  }
+  .MuiFormLabel-root {
+    margin-bottom: 20px;
+  }
 }
 
 .conditions {
-    font-size: 14px;
-    padding: 5vh 0 5vh 9vw;
-    span {
-        padding: 0 !important;
+  font-size: 12px;
+  span {
+    padding: 0 !important;
+  }
+}
+
+.footer-top {
+  justify-content: space-between;
+  padding: 2vh 48px;
+  color: white;
+  background-color: blue;
+  align-items: center;
+  svg {
+    margin: 7px;
+    &:hover {
+      cursor: pointer;
     }
+  }
 }

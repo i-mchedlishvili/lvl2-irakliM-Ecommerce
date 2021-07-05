@@ -1,18 +1,12 @@
 import React from "react";
-import "../App.css";
-import {
-  Box,
-  Container,
-  List,
-  ListItem,
-} from "@material-ui/core";
-import { typography } from "@material-ui/system";
+import "../../App.css";
+import { Box, Container, List, ListItem } from "@material-ui/core";
 
 function Subcategories() {
   return (
-    <Container maxWidth>
-      <Box className="subcategories">
-        <Box fontWeight="fontWeightBold" fontSize={20}>
+    <Container>
+      <Box className="subcategories" mb={4}>
+        <Box fontWeight="fontWeightBold" fontSize={20} mb={1}>
           Subcategories
         </Box>
         <Box fontWeight="fontWeightBold" fontSize={13}>
