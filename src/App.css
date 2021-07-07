@@ -113,3 +113,33 @@
 .footer-top svg:hover {
   cursor: pointer;
 }
+
+.footer {
+  background-color: #2E2E2E;
+  color: white;
+}
+.footer p {
+  font-weight: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.copyright {
+  color: #86A0A8;
+  background-color: #252525;
+  padding: 25px;
+}
+.copyright p {
+  margin: 0;
+}
+
+.MuiCardActionArea-root {
+  display: block;
+  text-align: center !important;
+  font-size: 16px !important;
+}
+.MuiCardActionArea-root .MuiTypography-gutterBottom {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}

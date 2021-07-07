@@ -1,6 +1,6 @@
 import React from "react";
-import "../App.css";
-import { Box, Container, Grid } from "@material-ui/core";
+import "../../App.css";
+import { Box, Grid } from "@material-ui/core";
 import BusinessIcon from "@material-ui/icons/Business";
 import LocalPhoneIcon from "@material-ui/icons/LocalPhone";
 import EmailIcon from "@material-ui/icons/Email";
@@ -8,7 +8,7 @@ import ScheduleIcon from "@material-ui/icons/Schedule";
 
 function Footer() {
   return (
-    <Grid container>
+    <Grid container className="footer">
       <Grid item lg={3} md={3} sm={6} xs={12}>
         <Box p={3}>
           <Box fontWeight="fontWeightBold" fontSize={20} mb={1}>
@@ -53,7 +53,7 @@ function Footer() {
           </Box>
           <Box>
             <p>Your Account</p>
-            <p>Become AAn Affiliate</p>
+            <p>Become an Affiliate</p>
             <p>Shipping Rates</p>
             <p>Help</p>
           </Box>

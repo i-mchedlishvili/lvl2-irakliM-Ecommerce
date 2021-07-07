@@ -9,8 +9,8 @@ import {
 } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import React from "react";
-import "../App.css";
-import Image from "../images/header-image.jpg";
+import "../../App.css";
+import Image from "../../images/header-image.jpg";
 
 function Header() {
   const useStyles = makeStyles({
