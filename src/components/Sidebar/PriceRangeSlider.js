@@ -1,4 +1,4 @@
-import { Box, Container, Slider, makeStyles, form } from "@material-ui/core";
+import { Box, Container, Slider, makeStyles } from "@material-ui/core";
 import React from "react";
 import "../../App.css";
 
