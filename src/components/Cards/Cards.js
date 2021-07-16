@@ -10,11 +10,12 @@ import Typography from "@material-ui/core/Typography";
 import { useParams } from "react-router";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ItemLayout from "../Items/ItemLayout";
+import { ContactSupportOutlined } from "@material-ui/icons";
 
-function Cards() {
+function Cards(props) {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products/")
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);
@@ -35,34 +36,35 @@ function Cards() {
     <div>
       <Grid container spacing={3}>
         {!!data &&
-          data.map((items) => (
-            
-            <Grid item lg={4}>
-              <Link 
-              to={<ItemLayout />}
-              onClick={() => {console.log("asd")}}
-              >
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia className={classes.media} image={items.image} />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {items.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                     ${items.price}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-              </Link>
-            </Grid>
-            
-          ))}
+          data.map((items) => {
+            console.log(items);
+            return (
+              <Grid item lg={4}>
+                <Link to={"/item/" + items.id}>
+                  <Card className={classes.root}>
+                    <CardActionArea>
+                      <CardMedia
+                        className={classes.media}
+                        image={items.image}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {items.title}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          ${items.price}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Link>
+              </Grid>
+            );
+          })}
       </Grid>
     </div>
   );

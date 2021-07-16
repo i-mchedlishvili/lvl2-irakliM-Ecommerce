@@ -8,18 +8,19 @@ import Customer from "./CustomerReview";
 import Price from "./PriceRange";
 import PriceSlider from "./PriceRangeSlider";
 import Size from "./Size";
-
+import Admin from "./Admin";
 function SideBar() {
   return (
     <Container>
       <Box>
-          <Subcategories />
-          <Filter />
-          <Condition />
-          <Customer />
-          <Price />
-          <PriceSlider />
-          <Size />
+        <Subcategories />
+        <Admin />
+        <Filter />
+        <Condition />
+        <Customer />
+        <Price />
+        <PriceSlider />
+        <Size />
       </Box>
     </Container>
   );

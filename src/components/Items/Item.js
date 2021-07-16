@@ -1,4 +1,4 @@
-import React, { value, handleChange } from "react";
+import React, { value, handleChange, useState, useEffect } from "react";
 import "../../App.css";
 import {
   Box,
@@ -10,14 +10,41 @@ import {
   Radio,
   Button,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import Cards from "../Cards/Cards";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 
-function Item() {
+function Item(props) {
+  console.log(props.url);
+
+  const [data, setData] = useState({});
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${props.url}`)
+      .then((res) => res.json())
+      .then((json) => setData(json));
+  }, []);
+
+  console.log(data);
+  const useStyles = makeStyles({
+    root: {
+      maxWidth: 345,
+      marginRight: 40,
+      marginBottom: 40,
+    },
+    media: {
+      height: 240,
+    },
+    image: {
+      maxWidth: 90,
+    },
+  });
+
+  const classes = useStyles();
+
   return (
     <>
-      <Box>
+      <Box p={5}>
         <Container>
           <Box>
             <Typography variant="h4" align="center" component={Box} p={5}>
@@ -26,11 +53,17 @@ function Item() {
           </Box>
           <Box display="flex" justifyContent="center" p={5}>
             <Box>
-              <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" />
+              <img className={classes.root} src={data.image} />
+              <Box display="flex">
+                <img className={classes.image} src={data.image} />
+                <img className={classes.image} src={data.image} />
+                <img className={classes.image} src={data.image} />
+                <img className={classes.image} src={data.image} />
+              </Box>
             </Box>
             <Box>
-              <Typography variant="h5">Blue denim shirt</Typography>
-              <Typography variant="subtitle2">SHIRTS</Typography>
+              <Typography variant="h5">{data.title}</Typography>
+              <Typography variant="subtitle2">{data.category}</Typography>
               <Box>
                 <StarIcon color="primary" />
                 <StarIcon color="primary" />
@@ -38,25 +71,19 @@ function Item() {
                 <StarIcon color="primary" />
                 <StarBorderIcon color="primary" />
               </Box>
-              <Typography>$17.99</Typography>
-              <Typography>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Numquam, sapiente
-                <br /> illo. Sit error voluptas repellat rerum quidem, soluta
-                enim perferendis <br /> voluptates laboriosam. Distinctio,
-                officia quis dolore quos sapiente tempore <br /> alias.
-              </Typography>
+              <Typography>${data.price}</Typography>
+              <Typography>{data.description}</Typography>
               <Box>
                 <Box display="flex">
                   <Typography variant="h6">Model</Typography>
                   <Typography component={Box} pl={5}>
-                    Shirt 5407X
+                    XXXX
                   </Typography>
                 </Box>
                 <Box display="flex">
                   <Typography variant="h6">Color</Typography>
                   <Typography component={Box} pl={5}>
-                    Blue
+                    XXXX
                   </Typography>
                 </Box>
                 <Box display="flex">

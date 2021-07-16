@@ -1,34 +1,39 @@
 import React from "react";
 import "./App.css";
-import { Box, Grid } from "@material-ui/core";
-import Header from "./components/Layout/Header";
-import SideBar from "./components/Sidebar/SideBar";
-import FooterTop from "./components/Layout/FooterTop";
-import Footer from "./components/Layout/Footer";
-import CopyrightFooter from "./components/Layout/FooterCopyright";
-import Cards from "./components/Cards/Cards";
-import Item from "./components/Items/ItemLayout";
 import ItemLayout from "./components/Items/ItemLayout";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./components/views/Home";
+import Products from "./components/views/Products";
+
+export function Users() {
+  return <div>users</div>;
+}
+
+export function Categories() {
+  return <div>categories</div>;
+}
 
 function App() {
   return (
-    <BrowserRouter basename="/home">
-      <>
-        <Header />
-        <Grid container component={Box} mt={4} pr={3}>
-          <Grid item sm={4} md={4} lg={4}>
-            <SideBar />
-          </Grid>
-          <Grid item sm={8} md={8} lg={8}>
-            <Cards />
-          </Grid>
-        </Grid>
-        <FooterTop />
-        <Footer />
-        <CopyrightFooter />
-      </>
-    </BrowserRouter>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/item/:id?">
+          <ItemLayout />
+        </Route>
+        <Route path="/products">
+          <Products />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/categories">
+          <Categories />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
