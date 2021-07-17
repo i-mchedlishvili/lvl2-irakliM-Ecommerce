@@ -4,7 +4,6 @@ import Modal from "react-modal";
 import "../App.css";
 import Form from "./Formik";
 
-
 function ModalTab() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (

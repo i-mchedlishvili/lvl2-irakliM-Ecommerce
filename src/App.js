@@ -4,6 +4,7 @@ import ItemLayout from "./components/Items/ItemLayout";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Products from "./components/pages/Products";
+import { PRODUCT_LIST, SINGLE_ITEM, USERS, HOME, CATEGORIE } from "./components/Routes";
 
 export function Users() {
   return <div>users</div>;
@@ -17,19 +18,19 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={HOME}>
           <Home />
         </Route>
-        <Route path="/item/:id?">
+        <Route path={SINGLE_ITEM}>
           <ItemLayout />
         </Route>
-        <Route path="/products">
+        <Route path={PRODUCT_LIST}>
           <Products />
         </Route>
-        <Route path="/users">
+        <Route path={USERS}>
           <Users />
         </Route>
-        <Route path="/categories">
+        <Route path={CATEGORIE}>
           <Categories />
         </Route>
       </Switch>
