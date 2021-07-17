@@ -8,7 +8,7 @@ import Customer from "./CustomerReview";
 import Price from "./PriceRange";
 import PriceSlider from "./PriceRangeSlider";
 import Size from "./Size";
-import Admin from "./Admin";
+import Admin from "../Layout/Admin";
 function SideBar() {
   return (
     <Container>

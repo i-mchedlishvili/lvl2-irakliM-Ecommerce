@@ -4,7 +4,7 @@ import ItemLayout from "./components/Items/ItemLayout";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Products from "./components/pages/Products";
-import { PRODUCT_LIST, SINGLE_ITEM, USERS, HOME, CATEGORIE } from "./components/Routes";
+import { PRODUCT_LIST, SINGLE_ITEM, USERS, HOME, CATEGORIE } from "./components/routes";
 
 export function Users() {
   return <div>users</div>;
