@@ -143,3 +143,20 @@
   font-size: 16px !important;
   font-weight: bold !important;
 }
+
+.form {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.form input {
+  height: 30px;
+  margin-bottom: 20px;
+}
+.form label {
+  font-weight: bold;
+}

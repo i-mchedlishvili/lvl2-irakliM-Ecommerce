@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import ItemLayout from "./components/Items/ItemLayout";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./components/views/Home";
-import Products from "./components/views/Products";
+import Home from "./components/pages/Home";
+import Products from "./components/pages/Products";
 
 export function Users() {
   return <div>users</div>;

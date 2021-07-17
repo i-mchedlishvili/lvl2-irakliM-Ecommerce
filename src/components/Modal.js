@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Products from "./views/Products";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 import Modal from "react-modal";
+import "../App.css";
+import Form from "./Formik";
+
 
 function ModalTab() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -10,6 +12,8 @@ function ModalTab() {
       <Button
         variant="contained"
         color="primary"
+        component={Box}
+        m={3}
         onClick={() => setModalIsOpen(true)}
       >
         Add Item
@@ -19,8 +23,17 @@ function ModalTab() {
         onRequestClose={() => setModalIsOpen(false)}
         style={{ overlay: { backgroundColor: "gray" } }}
       >
-          
-        <Button onClick={() => setModalIsOpen(false)}>Close</Button>
+        <Button
+          component={Box}
+          mt={1}
+          mb={2}
+          variant="contained"
+          color="primary"
+          onClick={() => setModalIsOpen(false)}
+        >
+          Close
+        </Button>
+        <Form />
       </Modal>
     </>
   );

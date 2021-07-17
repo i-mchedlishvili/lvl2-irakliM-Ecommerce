@@ -1,10 +1,4 @@
-import React, { useState, useEffect, setIsLoading } from "react";
-import { Grid, Box } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import Header from "../Layout/Header";
-import FooterTop from "../Layout/FooterTop";
-import Footer from "../Layout/Footer";
-import CopyrightFooter from "../Layout/FooterCopyright";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -13,7 +7,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core";
 import ModalTab from "../Modal";
 
 const useStyles = makeStyles({

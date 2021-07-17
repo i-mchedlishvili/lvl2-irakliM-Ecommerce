@@ -143,3 +143,15 @@
     font-weight: bold !important;
 }
 }
+
+.form {
+  display: flex !important;
+  flex-direction: column;
+  input {
+    height: 30px;
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: bold;
+  }
+}
