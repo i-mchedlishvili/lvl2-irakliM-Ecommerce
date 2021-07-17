@@ -11,6 +11,7 @@ import { useParams } from "react-router";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ItemLayout from "../Items/ItemLayout";
 import { ContactSupportOutlined } from "@material-ui/icons";
+import { cardStyles } from "../../styles";
 
 function Cards(props) {
   const [data, setData] = useState(null);
@@ -20,17 +21,7 @@ function Cards(props) {
       .then((json) => setData(json));
   }, []);
 
-  console.log(data);
-  const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 240,
-    },
-  });
-
-  const classes = useStyles();
+  const classes = cardStyles();
 
   return (
     <div>

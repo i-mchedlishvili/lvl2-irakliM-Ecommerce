@@ -40,7 +40,7 @@ function Form() {
             <label htmlFor="price">Price</label>
             <Field name="price" id="price" />
 
-            <label htmlFor="description">description</label>
+            <label htmlFor="description">Description</label>
             <Field name="description" id="description" />
 
             <label htmlFor="category">Category</label>

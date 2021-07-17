@@ -8,12 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import ModalTab from "../Modal";
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+import { productStyles } from "../../styles";
 
 function Products() {
   const [data, setData] = useState([]);
@@ -24,7 +19,7 @@ function Products() {
   }, []);
   console.log(data);
 
-  const classes = useStyles();
+  const classes = productStyles();
   return (
     <>
       <ModalTab />

@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Cards from "../Cards/Cards";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-
+import { itemStyles } from "../../styles";
 function Item(props) {
   console.log(props.url);
 
@@ -25,22 +25,7 @@ function Item(props) {
       .then((json) => setData(json));
   }, []);
 
-  console.log(data);
-  const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-      marginRight: 40,
-      marginBottom: 40,
-    },
-    media: {
-      height: 240,
-    },
-    image: {
-      maxWidth: 90,
-    },
-  });
-
-  const classes = useStyles();
+  const classes = itemStyles();
 
   return (
     <>
