@@ -3,7 +3,7 @@ import { Button, Box } from "@material-ui/core";
 import { useFormik, FormikProvider, Field } from "formik";
 import "../App.css";
 
-function Form() {
+function Formik() {
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -71,4 +71,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default Formik;

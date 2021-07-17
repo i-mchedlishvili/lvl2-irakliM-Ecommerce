@@ -1,17 +1,14 @@
 import React, { useState, useEffect, setIsLoading } from "react";
 import "../../App.css";
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Box } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { useParams } from "react-router";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ItemLayout from "../Items/ItemLayout";
-import { ContactSupportOutlined } from "@material-ui/icons";
-import { cardStyles } from "../../styles";
+import { cardStyles } from "./CardStyles";
+import { BounceLoader } from "react-spinners";
 
 function Cards(props) {
   const [data, setData] = useState(null);
@@ -26,7 +23,7 @@ function Cards(props) {
   return (
     <div>
       <Grid container spacing={3}>
-        {!!data &&
+        {data ? (
           data.map((items) => {
             console.log(items);
             return (
@@ -55,7 +52,17 @@ function Cards(props) {
                 </Link>
               </Grid>
             );
-          })}
+          })
+        ) : (
+          <BounceLoader
+            component={Box}
+            display="flex"
+            alignItems="center"
+            size={72}
+            color="red"
+            loading
+          />
+        )}
       </Grid>
     </div>
   );

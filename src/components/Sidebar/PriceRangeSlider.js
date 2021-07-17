@@ -1,7 +1,7 @@
 import { Box, Container, Slider, makeStyles } from "@material-ui/core";
 import React from "react";
 import "../../App.css";
-import { priceRangeStyles } from "../../styles";
+import { priceRangeStyles } from "./PriceRangeStyles";
 
 function PriceSlider() {
   const classes = priceRangeStyles();
