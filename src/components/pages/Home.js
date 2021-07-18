@@ -1,13 +1,11 @@
 import React from "react";
 import { Grid, Box } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import Header from "../Layout/Header";
 import FooterTop from "../Layout/FooterTop";
 import Footer from "../Layout/Footer";
 import CopyrightFooter from "../Layout/FooterCopyright";
 import SideBar from "../Sidebar/SideBar";
 import Cards from "../Cards/Cards";
-import { useParams } from "react-router-dom";
 
 function Home() {
   return (

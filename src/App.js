@@ -4,7 +4,15 @@ import ItemLayout from "./components/Items/ItemLayout";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Products from "./components/pages/Products";
-import { PRODUCT_LIST, SINGLE_ITEM, USERS, HOME, CATEGORIE } from "./components/routes";
+import {
+  PRODUCT_LIST,
+  SINGLE_ITEM,
+  USERS,
+  HOME,
+  CATEGORIE,
+  ADMIN,
+} from "./components/routes";
+import AdminPanel from "./components/pages/AdminPanel";
 
 export function Users() {
   return <div>users</div>;
@@ -32,6 +40,9 @@ function App() {
         </Route>
         <Route path={CATEGORIE}>
           <Categories />
+        </Route>
+        <Route path={ADMIN}>
+          <AdminPanel />
         </Route>
       </Switch>
     </Router>

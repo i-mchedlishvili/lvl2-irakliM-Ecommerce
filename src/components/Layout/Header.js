@@ -10,6 +10,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import React from "react";
 import "../../App.css";
 import Image from "../../images/header-image.jpg";
+import { Link } from "react-router-dom";
 
 function Header() {
   const useStyles = makeStyles({
@@ -28,6 +29,12 @@ function Header() {
         <List className={classes.flexHeader}>
           <p className="header-logo">MDB</p>
           <ShoppingCartIcon />
+          <ListItem>
+            <Link to="/admin">
+              {" "}
+              <Button>Admin Panel</Button>
+            </Link>
+          </ListItem>
           <ListItem>
             <Button>Shop</Button>
           </ListItem>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Box } from "@material-ui/core";
 import Modal from "react-modal";
 import "../App.css";
-import Formik from "./Formik";
+import FormProvider from "./FormProvider";
 
 function ModalTab() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -32,7 +32,7 @@ function ModalTab() {
         >
           Close
         </Button>
-        <Formik />
+        <FormProvider />
       </Modal>
     </>
   );
