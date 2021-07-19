@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Box } from "@material-ui/core";
 import { useFormik, FormikProvider, Field } from "formik";
 import "../App.css";
+import PublishIcon from "@material-ui/icons/Publish";
 
 function FormProvider() {
   const formik = useFormik({
@@ -62,6 +63,7 @@ function FormProvider() {
               color="primary"
               type="submit"
             >
+              <PublishIcon />
               Submit
             </Button>
           </form>

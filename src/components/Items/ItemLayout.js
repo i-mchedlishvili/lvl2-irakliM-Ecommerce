@@ -6,8 +6,10 @@ import Footer from "../Layout/Footer";
 import CopyrightFooter from "../Layout/FooterCopyright";
 import Item from "./Item";
 import { useParams } from "react-router-dom";
+
 function ItemLayout() {
   let { id } = useParams();
+
   return (
     <>
       <Header />

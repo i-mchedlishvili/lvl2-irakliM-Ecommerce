@@ -8,7 +8,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 
 function FooterTop() {
   return (
-    <Box display="flex" className="footer-top">
+    <Box mt={4} display="flex" className="footer-top">
       <Box fontWeight="fontWeightBold" fontSize={17}>
         <p>Get connected with us on social networks! </p>
       </Box>

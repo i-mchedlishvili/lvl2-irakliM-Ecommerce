@@ -8,3 +8,4 @@ export const cardStyles = makeStyles({
     height: 240,
   },
 });
+

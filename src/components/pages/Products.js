@@ -1,29 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box } from "@material-ui/core";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+} from "@material-ui/core";
 import ModalTab from "../Modal";
 import { productStyles } from "./productStyles";
 import { BounceLoader } from "react-spinners";
+import useProducts from "../../api/useProducts";
+import { limiterStyles } from "../LimiterStyles";
 
 function Products() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/")
-      .then((res) => res.json())
-      .then((json) => setData(json));
-  }, []);
-  console.log(data);
-
   const classes = productStyles();
+  const limiterStyle = limiterStyles();
+  const [limit, setLimit] = useState("");
+  const handleChange = (event) => {
+    setLimit(event.target.value);
+  };
+  const data = useProducts(limit);
   return (
     <>
       <ModalTab />
+      <FormControl className={limiterStyle.formControl}>
+        <InputLabel id="limit">Limit</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="limit"
+          value={limit}
+          onChange={handleChange}
+        >
+          <MenuItem value={5}>5</MenuItem>
+          <MenuItem value={10}>10</MenuItem>
+          <MenuItem value={20}>20</MenuItem>
+        </Select>
+      </FormControl>
       <TableContainer component={Paper}>
         <Table
           className={classes.table}
@@ -40,14 +59,14 @@ function Products() {
           </TableHead>
           <TableBody>
             {data ? (
-              data.map((row) => (
-                <TableRow key={row.category}>
+              data.map(({ category, title, price, id }) => (
+                <TableRow key={category}>
                   <TableCell component="th" scope="row">
-                    {row.title}
+                    {title}
                   </TableCell>
-                  <TableCell align="right">{row.category}</TableCell>
-                  <TableCell align="right">${row.price}</TableCell>
-                  <TableCell align="right">{row.id}</TableCell>
+                  <TableCell align="right">{category}</TableCell>
+                  <TableCell align="right">${price}</TableCell>
+                  <TableCell align="right">{id}</TableCell>
                 </TableRow>
               ))
             ) : (
