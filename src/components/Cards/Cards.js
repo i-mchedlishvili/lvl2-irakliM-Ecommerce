@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 import { cardStyles } from "./CardStyles";
 import { BounceLoader } from "react-spinners";
 import useCards from "../../api/useProducts";
+import Pagination from "@material-ui/lab/Pagination";
 
 function Cards() {
   const data = useCards();
-
   const classes = cardStyles();
 
   return (
@@ -62,6 +62,9 @@ function Cards() {
           />
         )}
       </Grid>
+      <Box display="flex" justifyContent="center" mt={5} mr={5}>
+        <Pagination count={10} color="primary" />
+      </Box>
     </div>
   );
 }
