@@ -11,8 +11,14 @@ import {
   HOME,
   CATEGORIE,
   ADMIN,
+  SIGN_IN,
+  REGISTER
 } from "./components/routes";
 import AdminPanel from "./components/pages/AdminPanel";
+import LoginForm from "./components/pages/users/LoginForm";
+import RegisterForm from "./components/pages/users/RegisterForm";
+
+
 
 export function Users() {
   return <div>users</div>;
@@ -43,6 +49,12 @@ function App() {
         </Route>
         <Route path={ADMIN}>
           <AdminPanel />
+        </Route>
+        <Route path={SIGN_IN}>
+          <LoginForm />
+        </Route>
+        <Route path={REGISTER}>
+          <RegisterForm />
         </Route>
       </Switch>
     </Router>

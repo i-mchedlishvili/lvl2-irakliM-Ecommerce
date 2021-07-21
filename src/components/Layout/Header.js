@@ -42,10 +42,14 @@ function Header() {
             <Button>Contact</Button>
           </ListItem>
           <ListItem>
-            <Button>Sign in</Button>
+            <Button>
+              <Link to="/signIn"> Sign in </Link>
+            </Button>
           </ListItem>
           <ListItem>
-            <Button className="sign-up-but">SIGN UP</Button>
+            <Button className="sign-up-but">
+              <Link to="/register">SIGN UP</Link>
+            </Button>
           </ListItem>
         </List>
         <Box className="shopCont">

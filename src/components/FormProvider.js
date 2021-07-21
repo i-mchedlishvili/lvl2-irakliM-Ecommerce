@@ -14,7 +14,7 @@ function FormProvider() {
       category: "",
     },
     onSubmit: (values) => {
-      fetch("https://fakestoreapi.com/users", {
+      fetch("https://fakestoreapi.com/products", {
         method: "POST",
         body: JSON.stringify({
           title: formik.values.title,
@@ -56,13 +56,7 @@ function FormProvider() {
               value={formik.values.password}
             />
 
-            <Button
-              component={Box}
-              mt={1}
-              variant="contained"
-              color="primary"
-              type="submit"
-            >
+            <Button variant="contained" color="primary" type="submit">
               <PublishIcon />
               Submit
             </Button>

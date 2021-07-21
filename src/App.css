@@ -160,3 +160,64 @@
 .form label {
   font-weight: bold;
 }
+
+.signIn {
+  color: gray;
+}
+.signIn .MuiListItem-root {
+  width: auto !important;
+  text-transform: none !important;
+  background-color: transparent !important;
+  color: white;
+}
+.signIn span {
+  text-transform: none !important;
+  color: gray;
+  font-weight: bold;
+}
+.signIn .sign-up-but {
+  border: 2px solid white;
+  border-radius: 15px;
+  color: #42aaff;
+  text-transform: none !important;
+  margin-left: 10px;
+  font-size: 10px !important;
+}
+.signIn .header-logo {
+  position: fixed;
+  left: 2%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.signIn .header-logo:hover {
+  cursor: pointer;
+}
+.signIn svg:hover {
+  cursor: pointer;
+}
+.signIn .MuiList-root {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  z-index: 111;
+}
+.signIn .MuiListItem-gutters {
+  padding: 0;
+}
+.signIn .shopCont {
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+}
+.signIn .shopCont p {
+  z-index: 1111 !important;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 25vh !important;
+  color: white;
+  font-weight: 500;
+}
+.signIn .shopCont p:hover {
+  cursor: default;
+}
