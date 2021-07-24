@@ -18,7 +18,7 @@ import { BounceLoader } from "react-spinners";
 function Item(props) {
   const [data, setData] = useState({});
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${props.url}`)
+    fetch(`http://159.65.126.180/api/products/${props.url}`)
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);

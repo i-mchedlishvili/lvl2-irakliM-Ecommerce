@@ -68,8 +68,8 @@ function LoginForm() {
       password: "",
     },
     onSubmit: (values) => {
-      fetch("https://fakestoreapi.com/users", {
-        method: "POST",
+      fetch("http://159.65.126.180/api/auth/login", {
+        method: "PUT",
         body: JSON.stringify({
           email: formik.values.email,
           password: formik.values.password,

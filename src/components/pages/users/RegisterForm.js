@@ -104,7 +104,7 @@ function RegisterForm() {
       phone: "",
     },
     onSubmit: (values) => {
-      fetch("https://fakestoreapi.com/users", {
+      fetch("http://159.65.126.180/api/register", {
         method: "POST",
         body: JSON.stringify({
           email: formik.values.email,
@@ -173,9 +173,9 @@ function RegisterForm() {
       <FormikProvider value={formik}>
         <div>
           <form onSubmit={formik.handleSubmit} className={classes.root}>
-            <Box className={classes.nameBoxStyle}>
+            
               <Field
-                className={classes.nameInput}
+                className={classes.input}
                 type="firstname"
                 id="firstname"
                 name="name.firstname"
@@ -184,16 +184,7 @@ function RegisterForm() {
                 placeholder="First name"
               />
 
-              <Field
-                className={classes.nameInput}
-                type="lastname"
-                id="lastname"
-                name="name.lastname"
-                onChange={formik.handleChange}
-                value={formik.values.name.lastname}
-                placeholder="Last name"
-              />
-            </Box>
+              
 
             <Field
               className={classes.input}
@@ -212,15 +203,6 @@ function RegisterForm() {
               placeholder="Your password"
             />
 
-            <Field
-              className={classes.input}
-              type="phone"
-              id="phone"
-              name="phone"
-              onChange={formik.handleChange}
-              value={formik.values.phone}
-              placeholder="Phone number"
-            />
             <Button
               display="block"
               variant="contained"
@@ -230,6 +212,7 @@ function RegisterForm() {
             >
               SIGN UP
             </Button>
+       
           </form>
         </div>
       </FormikProvider>
