@@ -15,43 +15,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FooterTop from "../../Layout/FooterTop";
 import Footer from "../../Layout/Footer";
 import FooterCopyright from "../../Layout/FooterCopyright";
-
-const FormStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: 500,
-    display: "block",
-    margin: "0 auto",
-    paddingTop: 100,
-  },
-  flexHeader: {
-    display: "flex",
-    alignItems: "center",
-    position: "fixed",
-    right: "2%",
-  },
-  input: {
-    width: 500,
-    height: 38,
-    marginBottom: 30,
-    paddingLeft: 7,
-    outline: "none",
-    borderRadius: 4,
-  },
-  checkbox: {
-    marginBottom: 18,
-    color: "gray",
-  },
-  button: {
-    display: "block",
-    margin: "0 auto",
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
-  },
-});
+import { FormStyles } from "./LoginFormStyles";
 
 function LoginForm() {
   const [state, setState] = useState({
@@ -68,8 +32,8 @@ function LoginForm() {
       password: "",
     },
     onSubmit: (values) => {
-      fetch("http://159.65.126.180/api/auth/login", {
-        method: "PUT",
+      fetch("http://159.65.126.180/api/auth/me", {
+        method: "POST",
         body: JSON.stringify({
           email: formik.values.email,
           password: formik.values.password,

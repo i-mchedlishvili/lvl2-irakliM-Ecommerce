@@ -16,56 +16,7 @@ import FooterTop from "../../Layout/FooterTop";
 import Footer from "../../Layout/Footer";
 import FooterCopyright from "../../Layout/FooterCopyright";
 import { createContext } from "react";
-
-const FormStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: 500,
-    display: "block",
-    margin: "0 auto",
-    paddingTop: 100,
-  },
-  flexHeader: {
-    display: "flex",
-    alignItems: "center",
-    position: "fixed",
-    right: "2%",
-  },
-  input: {
-    width: 500,
-    height: 38,
-    marginBottom: 30,
-    paddingLeft: 7,
-    outline: "none",
-    borderRadius: 4,
-  },
-  nameInput: {
-    width: 200,
-    height: 38,
-    marginBottom: 30,
-    paddingLeft: 7,
-    outline: "none",
-    borderRadius: 4,
-  },
-  checkbox: {
-    marginBottom: 18,
-    color: "gray",
-  },
-  button: {
-    display: "block",
-    margin: "0 auto",
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
-  },
-  nameBoxStyle: {
-    display: "flex",
-    justifyContent: "space-between",
-    marginRight: -12,
-  },
-});
+import { FormStyles } from "./RegisterFormStyles";
 
 export const userContext = createContext();
 
@@ -88,43 +39,19 @@ function RegisterForm() {
 
   const formik = useFormik({
     initialValues: {
+      name: "",
       email: "",
-      username: "",
       password: "",
-      name: {
-        firstname: "",
-        lastname: "",
-      },
-      address: {
-        city: "",
-        street: "",
-        number: "",
-        zipcode: "",
-      },
-      phone: "",
+      password_confirmation: "",
     },
     onSubmit: (values) => {
       fetch("http://159.65.126.180/api/register", {
         method: "POST",
         body: JSON.stringify({
+          name: formik.values.name,
           email: formik.values.email,
-          username: formik.values.username,
           password: formik.values.password,
-          name: {
-            firstname: formik.values.name.firstname,
-            lastname: formik.values.name.lastname,
-          },
-          address: {
-            city: formik.values.address.city,
-            street: formik.values.address.street,
-            number: formik.values.address.number,
-            zipcode: formik.values.address.zipcode,
-            geolocation: {
-              lat: lat,
-              long: long,
-            },
-          },
-          phone: formik.values.phone,
+          password_confirmation: formik.values.password_confirmation,
         }),
       })
         .then((res) => res.json())
@@ -173,24 +100,24 @@ function RegisterForm() {
       <FormikProvider value={formik}>
         <div>
           <form onSubmit={formik.handleSubmit} className={classes.root}>
-            
-              <Field
-                className={classes.input}
-                type="firstname"
-                id="firstname"
-                name="name.firstname"
-                onChange={formik.handleChange}
-                value={formik.values.name.firstname}
-                placeholder="First name"
-              />
-
-              
+            <Field
+              className={classes.input}
+              type="name"
+              id="name"
+              name="name"
+              onChange={formik.handleChange}
+              value={formik.values.name}
+              placeholder="Your name"
+            />
 
             <Field
               className={classes.input}
+              type="email"
               name="email"
               id="email"
               placeholder="Your email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
             />
 
             <Field
@@ -203,6 +130,16 @@ function RegisterForm() {
               placeholder="Your password"
             />
 
+            <Field
+              className={classes.input}
+              type="password"
+              id="passwordConfirmation"
+              name="password_confirmation"
+              onChange={formik.handleChange}
+              value={formik.values.password_confirmation}
+              placeholder="Your password"
+            />
+
             <Button
               display="block"
               variant="contained"
@@ -212,7 +149,6 @@ function RegisterForm() {
             >
               SIGN UP
             </Button>
-       
           </form>
         </div>
       </FormikProvider>
