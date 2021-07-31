@@ -16,12 +16,18 @@ import FooterTop from "../../Layout/FooterTop";
 import Footer from "../../Layout/Footer";
 import FooterCopyright from "../../Layout/FooterCopyright";
 import { FormStyles } from "./LoginFormStyles";
+import { useAuth } from "../../../context/auth-context";
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
   const [state, setState] = useState({
     checkedB: false,
   });
 
+  const history = useHistory();
+
+  const { setAuth, auth } = useAuth();
+  console.log(auth);
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
@@ -31,19 +37,34 @@ function LoginForm() {
       email: "",
       password: "",
     },
+
     onSubmit: (values) => {
-      fetch("http://159.65.126.180/api/auth/me", {
+      fetch("http://159.65.126.180/api/auth/login", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
-          email: formik.values.email,
-          password: formik.values.password,
+          email: values.email,
+          password: values.password,
         }),
       })
-        .then((res) => res.json())
-        .then((json) => console.log(json));
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw Error(res.text("error"));
+          }
+        })
+        .then((json) => {
+          //setAuth(json)
+          localStorage.setItem("auth", JSON.stringify(json));
+          history.push("/admin");
+        });
     },
   });
-  console.log(formik.values);
+
   const classes = FormStyles();
   return (
     <>

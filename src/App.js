@@ -17,6 +17,8 @@ import {
 import AdminPanel from "./components/pages/AdminPanel";
 import LoginForm from "./components/pages/users/LoginForm";
 import RegisterForm from "./components/pages/users/RegisterForm";
+import { AuthProvider } from "./context/auth-context";
+import { GuardedRoute } from "./components/pages/users/guardedRoute";
 
 
 
@@ -30,6 +32,7 @@ export function Categories() {
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <Switch>
         <Route exact path={HOME}>
@@ -47,9 +50,9 @@ function App() {
         <Route path={CATEGORIE}>
           <Categories />
         </Route>
-        <Route path={ADMIN}>
+        <GuardedRoute path={ADMIN}>
           <AdminPanel />
-        </Route>
+        </GuardedRoute>
         <Route path={SIGN_IN}>
           <LoginForm />
         </Route>
@@ -58,6 +61,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </AuthProvider>
   );
 }
 

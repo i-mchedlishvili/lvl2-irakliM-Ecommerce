@@ -44,18 +44,27 @@ function RegisterForm() {
       password: "",
       password_confirmation: "",
     },
+
     onSubmit: (values) => {
+      console.log(values)
       fetch("http://159.65.126.180/api/register", {
         method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+      },
+
         body: JSON.stringify({
-          name: formik.values.name,
-          email: formik.values.email,
-          password: formik.values.password,
-          password_confirmation: formik.values.password_confirmation,
+          name: values.name,
+          email: values.email,
+          password: values.password,
+          password_confirmation: values.password_confirmation,
         }),
       })
-        .then((res) => res.json())
+
+        .then((res) => res.json)
         .then((json) => console.log(json));
+        
     },
   });
 
@@ -105,8 +114,7 @@ function RegisterForm() {
               type="name"
               id="name"
               name="name"
-              onChange={formik.handleChange}
-              value={formik.values.name}
+              
               placeholder="Your name"
             />
 
@@ -116,8 +124,7 @@ function RegisterForm() {
               name="email"
               id="email"
               placeholder="Your email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
+             
             />
 
             <Field
@@ -125,8 +132,7 @@ function RegisterForm() {
               type="password"
               id="password"
               name="password"
-              onChange={formik.handleChange}
-              value={formik.values.password}
+              
               placeholder="Your password"
             />
 
@@ -135,8 +141,7 @@ function RegisterForm() {
               type="password"
               id="passwordConfirmation"
               name="password_confirmation"
-              onChange={formik.handleChange}
-              value={formik.values.password_confirmation}
+              
               placeholder="Your password"
             />
 
