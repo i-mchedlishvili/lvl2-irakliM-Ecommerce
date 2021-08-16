@@ -5,7 +5,7 @@ const AuthContext = React.createContext();
 export function useAuth() {
   const context = React.useContext(AuthContext);
   if (context === undefined) {
-    throw new Error("useCount must be used within a CountProvider");
+    throw new Error("error");
   }
   return context;
 }

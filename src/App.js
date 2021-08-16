@@ -19,7 +19,8 @@ import LoginForm from "./components/pages/users/LoginForm";
 import RegisterForm from "./components/pages/users/RegisterForm";
 import { AuthProvider } from "./context/auth-context";
 import { GuardedRoute } from "./components/pages/users/guardedRoute";
-
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment, incrementByAmount, gamokleba } from './store/user'
 
 
 export function Users() {
@@ -31,6 +32,8 @@ export function Categories() {
 }
 
 function App() {
+  // const count = useSelector((state) => state.counter.value)
+  // const dispatch = useDispatch()
   return (
     <AuthProvider>
     <Router>
@@ -62,6 +65,29 @@ function App() {
       </Switch>
     </Router>
     </AuthProvider>
+    // <div>
+    //   <div>
+    //     <button
+    //       aria-label="Increment value"
+    //       onClick={() => dispatch(incrementByAmount(5))}
+    //     >
+    //       Increment
+    //     </button>
+    //     <span>{count}</span>
+    //     <button
+    //       aria-label="Decrement value"
+    //       onClick={() => dispatch(decrement())}
+    //     >
+    //       Decrement
+    //     </button>
+    //     <button
+    //       aria-label="Decrement value"
+    //       onClick={() => dispatch(gamokleba())}
+    //     >
+    //       5 gamokleba
+    //     </button>
+    //   </div>
+    // </div>
   );
 }
 

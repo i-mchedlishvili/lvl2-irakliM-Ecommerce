@@ -10,7 +10,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import React from "react";
 import "../../App.css";
 import Image from "../../images/header-image.jpg";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 function Header() {
   const useStyles = makeStyles({
@@ -23,6 +23,15 @@ function Header() {
   });
 
   const classes = useStyles();
+
+//   function header() {
+//     if(localStorage.hasOwnProperty("auth")) {
+//       document.getElementById("asd").style.display = "none"; 
+//     } else {
+//       document.getElementById("asd").style.display = "block"; 
+//     }
+//   }
+// header();
   return (
     <div className="App">
       <Box className="header-items">
@@ -44,6 +53,11 @@ function Header() {
           <ListItem>
             <Button>
               <Link to="/signIn"> Sign in </Link>
+            </Button>
+          </ListItem>
+          <ListItem>
+            <Button>
+              <Link to="/signin" onClick={() => {localStorage.removeItem("auth")}}>Logout</Link>
             </Button>
           </ListItem>
           <ListItem>

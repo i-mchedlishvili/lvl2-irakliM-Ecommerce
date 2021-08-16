@@ -17,13 +17,17 @@ import Footer from "../../Layout/Footer";
 import FooterCopyright from "../../Layout/FooterCopyright";
 import { createContext } from "react";
 import { FormStyles } from "./RegisterFormStyles";
+import { set } from "../../../store/user";
+import { useSelector, useDispatch } from 'react-redux';
 
 export const userContext = createContext();
 
 function RegisterForm() {
   const [long, setLong] = useState(null);
   const [lat, setLat] = useState(null);
-
+  const [user, setUser] = useState({});
+  console.log(user);
+  const dispatch = useDispatch();
   const success = (position) => {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -46,13 +50,13 @@ function RegisterForm() {
     },
 
     onSubmit: (values) => {
-      console.log(values)
+      console.log(values);
       fetch("http://159.65.126.180/api/register", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-      },
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
 
         body: JSON.stringify({
           name: values.name,
@@ -61,15 +65,16 @@ function RegisterForm() {
           password_confirmation: values.password_confirmation,
         }),
       })
-
         .then((res) => res.json)
-        .then((json) => console.log(json));
-        
+        .then((json) => {
+          dispatch(set(json));
+        });
     },
   });
 
   console.log(formik.values);
   const classes = FormStyles();
+
   return (
     <>
       <Box className="signIn">
@@ -114,7 +119,6 @@ function RegisterForm() {
               type="name"
               id="name"
               name="name"
-              
               placeholder="Your name"
             />
 
@@ -124,7 +128,6 @@ function RegisterForm() {
               name="email"
               id="email"
               placeholder="Your email"
-             
             />
 
             <Field
@@ -132,7 +135,6 @@ function RegisterForm() {
               type="password"
               id="password"
               name="password"
-              
               placeholder="Your password"
             />
 
@@ -141,7 +143,6 @@ function RegisterForm() {
               type="password"
               id="passwordConfirmation"
               name="password_confirmation"
-              
               placeholder="Your password"
             />
 

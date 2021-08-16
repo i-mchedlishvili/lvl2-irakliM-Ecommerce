@@ -18,20 +18,22 @@ import FooterCopyright from "../../Layout/FooterCopyright";
 import { FormStyles } from "./LoginFormStyles";
 import { useAuth } from "../../../context/auth-context";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { set } from '../../../store/user'
 
 function LoginForm() {
+  
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     checkedB: false,
   });
-
-  const history = useHistory();
 
   const { setAuth, auth } = useAuth();
   console.log(auth);
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-
+  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -59,43 +61,18 @@ function LoginForm() {
         })
         .then((json) => {
           //setAuth(json)
-          localStorage.setItem("auth", JSON.stringify(json));
+          localStorage.setItem("user", JSON.stringify(json));
+          dispatch(set(json))
           history.push("/admin");
-        });
+        })
+        
     },
   });
-
+  
   const classes = FormStyles();
   return (
     <>
-      <Box className="signIn">
-        <List className={classes.flexHeader}>
-          <p className="header-logo">MDB</p>
-          <ShoppingCartIcon />
-          <ListItem>
-            <Link to="/admin">
-              {" "}
-              <Button>Admin Panel</Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Button>Shop</Button>
-          </ListItem>
-          <ListItem>
-            <Button>Contact</Button>
-          </ListItem>
-          <ListItem>
-            <Button>
-              <Link to="/signIn"> Sign in </Link>
-            </Button>
-          </ListItem>
-          <ListItem>
-            <Button className="sign-up-but">
-              <Link to="/register">SIGN UP</Link>
-            </Button>
-          </ListItem>
-        </List>
-      </Box>
+     <Header />
       <Box>
         <Typography variant="h4" align="center" component={Box} p={5}>
           Sign in
